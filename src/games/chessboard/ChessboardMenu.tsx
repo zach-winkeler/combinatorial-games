@@ -7,7 +7,8 @@ interface IProps {
 }
 
 interface IState {
-    firstPlayer: string
+    firstPlayer: string,
+    piece: string
 }
 
 class ChessboardMenu extends React.Component<IProps, IState> {
@@ -15,12 +16,17 @@ class ChessboardMenu extends React.Component<IProps, IState> {
         super(props);
 
         this.state = {
-            firstPlayer: 'human'
+            firstPlayer: 'human',
+            piece: 'rook'
         };
     }
 
     handleFirstPlayerChange(e: React.ChangeEvent<HTMLSelectElement>) {
         this.setState({firstPlayer: e.target.value})
+    }
+
+    handlePieceChange(e: React.ChangeEvent<HTMLSelectElement>) {
+        this.setState({piece: e.target.value})
     }
 
     render() {
@@ -32,6 +38,11 @@ class ChessboardMenu extends React.Component<IProps, IState> {
                         <option value={"human"}>You</option>
                         <option value={"bot"}>Bot</option>
                         <option value={"random"}>Random</option>
+                    </select></li>
+                    <li>Piece: <select onChange={(e) => this.handlePieceChange(e)}>
+                        <option value={"rook"}>Rook</option>
+                        <option value={"queen"}>Queen</option>
+                        <option value={"knight"}>Knight</option>
                     </select></li>
                 </ul>
                 <Link to={{pathname: "/chessboard/" + queryString.stringify(this.state)}}><button>Play</button></Link>

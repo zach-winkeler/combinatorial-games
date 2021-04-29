@@ -36,6 +36,53 @@ export class ChessboardBoard extends React.Component {
         this.props.moves.movePiece(key);
     };
 
+    getChessPiece(white) {
+        if (white) {
+            switch (this.props.G.piece) {
+                case 'rook':
+                    return String.fromCharCode(9814);
+                case 'queen':
+                    return String.fromCharCode(9813);
+                case 'knight':
+                    return String.fromCharCode(9816);
+                default:
+                    throw Error('invalid piece');
+            }
+        } else {
+            switch (this.props.G.piece) {
+                case 'rook':
+                    return String.fromCharCode(9820);
+                case 'queen':
+                    return String.fromCharCode(9819);
+                case 'knight':
+                    return String.fromCharCode(9822);
+                default:
+                    throw Error('invalid piece');
+            }
+        }
+    }
+
+    squareContents(G, i, j) {
+        if ((this.props.G.pos[0] === i) && (this.props.G.pos[1] === j)) {
+            return this.getChessPiece(false);
+        }
+        if ((this.state.highlightedSquare !== undefined)
+            && (this.state.highlightedSquare[0] === i)
+            && (this.state.highlightedSquare[1] === j)) {
+            return this.getChessPiece(true);
+        }
+        if (G.piece === 'knight') {
+            if (i <= 1 && j <= 1) {
+                return String.fromCharCode(9733);
+            }
+        } else {
+            if (i === 0 && j === 0) {
+                return String.fromCharCode(9733);
+            }
+        }
+        return '';
+    }
+
     render() {
         let rows = [];
         for (const i of range(8)) {
@@ -48,17 +95,8 @@ export class ChessboardBoard extends React.Component {
                         className={((i+j) % 2 === 0) ? styles['light-square'] : styles['dark-square']}
                         onClick={() => this.onClickSquare([i,j])}
                         onMouseEnter={() => this.onMouseEnterSquare([i,j])}
-                        onMouseLeave={() => this.onMouseLeaveSquare()}
-                    >{
-                        ((this.props.G.pos[0] === i) && (this.props.G.pos[1] === j)) ?
-                            String.fromCharCode(9820) : (
-                                ((this.state.highlightedSquare !== undefined)
-                                    && (this.state.highlightedSquare[0] === i)
-                                    && (this.state.highlightedSquare[1] === j))
-
-                                    ? String.fromCharCode(9814) : ''
-                            )
-                    }
+                        onMouseLeave={() => this.onMouseLeaveSquare()}>
+                        {this.squareContents(this.props.G, i, j)}
                     </div></td>
                 );
             }

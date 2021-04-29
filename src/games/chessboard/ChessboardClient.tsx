@@ -7,7 +7,8 @@ import { ChessboardBoard } from './ChessboardBoard';
 import {randomElement} from "../../util/Random";
 
 export interface ChessboardProps {
-    firstPlayer: string
+    firstPlayer: string,
+    piece: string
 }
 
 class ChessboardClient extends React.Component<ChessboardProps> {
@@ -29,7 +30,7 @@ class ChessboardClient extends React.Component<ChessboardProps> {
 
     render() {
         const ClientInstance = Client({
-            game: ChessboardRules(this.getHumanFirst()),
+            game: ChessboardRules(this.getHumanFirst(), this.props.piece),
             board: ChessboardBoard,
             multiplayer: this.createMultiplayer(),
             debug: false
