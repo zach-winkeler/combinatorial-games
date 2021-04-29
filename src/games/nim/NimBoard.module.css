@@ -1,0 +1,61 @@
+.board-wrapper {
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Courier New", monospace;
+}
+
+.status {
+    font-size: x-large;
+    text-align: center;
+}
+
+.board {
+    background-color: var(--base2);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.pile {
+    width: 60px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.pile-count {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.token {
+    background-color: var(--base00);
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    vertical-align: bottom;
+}
+
+.highlighted-token {
+    background-color: var(--red);
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    vertical-align: bottom;
+}
+
+.menu {
+    font-size: x-large;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+#restart {
+
+}
+
+#back {
+
+}

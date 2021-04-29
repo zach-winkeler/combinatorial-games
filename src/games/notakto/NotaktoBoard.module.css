@@ -1,0 +1,44 @@
+.board-wrapper {
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Courier New", monospace;
+    font-size: xx-large;
+}
+
+.status {
+    font-size: x-large;
+    text-align: center;
+}
+
+.board {
+    display: flex;
+    background-color: var(--base2);
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.cell {
+    border: 1px solid #555;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.menu {
+    width: 100%;
+    font-size: x-large;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+#restart {
+
+}
+
+#back {
+
+}

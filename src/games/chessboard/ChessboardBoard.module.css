@@ -1,0 +1,51 @@
+.board-wrapper {
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Courier New", monospace;
+}
+
+.status {
+    font-size: x-large;
+    text-align: center;
+}
+
+.board {
+    display: inline;
+    margin: auto;
+}
+
+td {
+    padding: 0;
+}
+
+.light-square {
+    background-color: var(--base2);
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.dark-square {
+    background-color: var(--base1);
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.menu {
+    font-size: x-large;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+#restart {
+
+}
+
+#back {
+
+}
