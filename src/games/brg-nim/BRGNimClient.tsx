@@ -1,0 +1,47 @@
+import { Client } from 'boardgame.io/react';
+import { Local } from "boardgame.io/multiplayer";
+import { MCTSBot } from "boardgame.io/ai";
+import * as React from "react";
+import { BRGNimRules } from './BRGNimRules';
+import { BRGNimBoard } from './BRGNimBoard';
+import {randomElement} from "../../util/Random";
+
+export interface BRGNimProps {
+    firstPlayer: string
+    randomPiles: boolean,
+    startingPiles?: string[],
+    colors?: string[],
+    numPiles?: number,
+    maxPileSize?: number
+}
+
+class BRGNimClient extends React.Component<BRGNimProps> {
+    createMultiplayer() {
+        let bots = { '1': MCTSBot };
+        return Local({ bots });
+    }
+
+    getHumanFirst() {
+        switch(this.props.firstPlayer) {
+            case 'human':
+                return true;
+            case 'bot':
+                return false;
+            case 'random':
+                return randomElement([false,true]);
+        }
+    }
+
+    render() {
+        const ClientInstance = Client({
+            game: BRGNimRules(this.getHumanFirst(), this.props.randomPiles ? undefined : this.props.startingPiles,
+                this.props.colors, this.props.numPiles, this.props.maxPileSize),
+            board: BRGNimBoard,
+            multiplayer: this.createMultiplayer(),
+            debug: false
+        });
+        return <ClientInstance playerID={"0"}/>;
+    }
+}
+
+export default BRGNimClient;

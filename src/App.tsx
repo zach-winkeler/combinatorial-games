@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import NimClient from './games/nim/NimClient';
 import { NimProps } from './games/nim/NimClient';
@@ -8,11 +8,12 @@ import * as queryString from "query-string";
 import NotaktoClient, {NotaktoProps} from "./games/notakto/NotaktoClient";
 import ChessboardClient, {ChessboardProps} from "./games/chessboard/ChessboardClient";
 import KaylesClient, {KaylesProps} from "./games/kayles/KaylesClient";
+import BRGNimClient, {BRGNimProps} from "./games/brg-nim/BRGNimClient";
 
 class App extends React.PureComponent {
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <Switch>
                     <Route
                         path={"/nim/:opts"}
@@ -43,11 +44,18 @@ class App extends React.PureComponent {
                         }}
                     />
                     <Route
+                        path={"/brg-nim/:opts"}
+                        render={({ match }) => {
+                            const brgNimProps = queryString.parse(match.params.opts, {arrayFormat: 'comma', parseNumbers: true, parseBooleans: true}) as unknown as BRGNimProps;
+                            return <BRGNimClient {... brgNimProps}/>;
+                        }}
+                    />
+                    <Route
                         path={"/"}
                         render={() => <Home />}
                     />
                 </Switch>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }

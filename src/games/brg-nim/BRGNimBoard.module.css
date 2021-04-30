@@ -1,0 +1,73 @@
+.board-wrapper {
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Courier New", monospace;
+}
+
+.status {
+    font-size: x-large;
+    text-align: center;
+}
+
+.board {
+    background-color: var(--base2);
+    display: flex;
+    justify-content: center;
+    height: 600px;
+}
+
+.pile {
+    width: 60px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.pile-count {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.token {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    vertical-align: bottom;
+}
+
+.blue {
+    background-color: var(--blue);
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.menu {
+    color: var(--base03);
+    font-size: x-large;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+#rulesButton {
+    font-size: x-large;
+    font-family: "Courier New", monospace;
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.rectangle {
+    background-color: var(--base2);
+    padding: 0 10px 10px 10px;
+    margin: 10px;
+}
