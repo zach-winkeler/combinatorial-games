@@ -2,6 +2,7 @@ import React from "react";
 import NimMenu from "./games/nim/NimMenu";
 import NotaktoMenu from "./games/notakto/NotaktoMenu";
 import ChessboardMenu from "./games/chessboard/ChessboardMenu";
+import KaylesMenu from "./games/kayles/KaylesMenu";
 
 class Home extends React.Component {
     render() {
@@ -17,6 +18,9 @@ class Home extends React.Component {
                 </div>
                 <div className={"rectangle"}>
                     <ChessboardMenu />
+                </div>
+                <div className={"rectangle"}>
+                    <KaylesMenu />
                 </div>
             </div>
             </>

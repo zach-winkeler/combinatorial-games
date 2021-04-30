@@ -7,6 +7,7 @@ import { NimProps } from './games/nim/NimClient';
 import * as queryString from "query-string";
 import NotaktoClient, {NotaktoProps} from "./games/notakto/NotaktoClient";
 import ChessboardClient, {ChessboardProps} from "./games/chessboard/ChessboardClient";
+import KaylesClient, {KaylesProps} from "./games/kayles/KaylesClient";
 
 class App extends React.PureComponent {
     render() {
@@ -35,7 +36,14 @@ class App extends React.PureComponent {
                         }}
                     />
                     <Route
-                        exact path={"/"}
+                        path={"/kayles/:opts"}
+                        render={({ match }) => {
+                            const kaylesProps = queryString.parse(match.params.opts, {parseNumbers: true}) as unknown as KaylesProps;
+                            return <KaylesClient {... kaylesProps}/>;
+                        }}
+                    />
+                    <Route
+                        path={"/"}
                         render={() => <Home />}
                     />
                 </Switch>

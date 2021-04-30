@@ -1,0 +1,33 @@
+.board-wrapper {
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Courier New", monospace;
+}
+
+.status {
+    font-size: x-large;
+    text-align: center;
+}
+
+.board {
+    background-color: var(--base2);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.menu {
+    font-size: x-large;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+#restart {
+
+}
+
+#back {
+
+}

@@ -11,11 +11,7 @@ function isVictory(G) {
 }
 
 function randomInitialPos() {
-    if (this.props.G.piece === 'knight') {
-        return [getRandomInt(2,8), getRandomInt(2,8)];
-    } else {
-        return [getRandomInt(1,8), getRandomInt(1,8)];
-    }
+    return [getRandomInt(2,8), getRandomInt(2,8)];
 }
 
 function isValidMove(G, ctx, pos) {
