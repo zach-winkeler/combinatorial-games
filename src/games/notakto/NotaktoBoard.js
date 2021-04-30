@@ -2,10 +2,19 @@ import React from 'react';
 import styles from './NotaktoBoard.module.css';
 import {Link} from "react-router-dom";
 
+const RULES = <div className={styles['rectangle']}>
+    Players take turns placing X's in squares on the board. <br/>
+    The first player to make 3-in-a-row (horizontally, vertically, or diagonally) wins.
+</div>
+
 export class NotaktoBoard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { players: undefined };
+        this.state = { players: undefined, showRules: false };
+    }
+
+    toggleRules = () => {
+        this.setState({showRules: !this.state.showRules});
     }
 
     getStatus() {
@@ -43,6 +52,7 @@ export class NotaktoBoard extends React.Component {
 
         let menu = <div className={styles['menu']}>
             <Link id={"back"} to={'/'}>Back</Link>
+            <button id={styles['rulesButton']} onClick={() => this.toggleRules()}>Rules</button>
             <Link id={"restart"} to={'#'}>Restart</Link>
         </div>;
 
@@ -53,6 +63,7 @@ export class NotaktoBoard extends React.Component {
                     <tbody>{tbody}</tbody>
                 </table>
                 {menu}
+                {this.state.showRules ? RULES : ''}
             </div>
         );
     }

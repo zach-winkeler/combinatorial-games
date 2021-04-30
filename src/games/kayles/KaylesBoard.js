@@ -5,7 +5,19 @@ import {range} from "../../util/Range";
 import { ReactComponent as Pin } from '../../resources/bowling-pin.svg';
 import { ReactComponent as Triangle } from '../../resources/triangle.svg';
 
+const RULES = <div className={styles['rectangle']}>
+    Players take turns bowling a ball at a row of pins. <br/>
+    A player can either hit one pin, or two adjacent pins. <br/>
+    The player who bowls down the last pin wins.
+</div>
+
 export class KaylesBoard extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { showRules: false };
+    }
+
     getStatus() {
         const playerID = parseInt(this.props.ctx.currentPlayer);
         if (this.props.ctx.gameover) {
@@ -29,6 +41,10 @@ export class KaylesBoard extends React.Component {
         this.props.moves.knockTwoPins(i);
     }
 
+    toggleRules = () => {
+        this.setState({showRules: !this.state.showRules});
+    }
+
     render() {
         let pins = []
         for (const i of range(this.props.G.pins.length-1)) {
@@ -45,8 +61,9 @@ export class KaylesBoard extends React.Component {
             : <Pin key={"pin"+i} fillOpacity={0}/>);
 
         let menu = <div className={styles['menu']}>
-            <Link id={"back"} to={'/'}>Back</Link>
-            <Link id={"restart"} to={'#'}>Restart</Link>
+            <Link to={'/'}>Back</Link>
+            <button id={styles['rulesButton']} onClick={() => this.toggleRules()}>Rules</button>
+            <Link to={'#'}>Restart</Link>
         </div>;
 
         return (
@@ -56,6 +73,7 @@ export class KaylesBoard extends React.Component {
                     {pins}
                 </div>
                 {menu}
+                {this.state.showRules ? RULES : ''}
             </div>
         );
     }

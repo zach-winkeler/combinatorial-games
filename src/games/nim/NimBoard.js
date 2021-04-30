@@ -2,6 +2,12 @@ import React from 'react';
 import styles from './NimBoard.module.css';
 import {Link} from "react-router-dom";
 
+const RULES = <div className={styles['rectangle']}>
+    Players take turns removing chips from piles. <br/>
+    A player may take any number of chips from a single pile. <br/>
+    The player who takes the last chip wins.
+</div>
+
 class Token
     extends React.Component {
     render() {
@@ -60,7 +66,11 @@ class Pile extends React.Component {
 export class NimBoard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { players: undefined };
+        this.state = { players: undefined, showRules: false };
+    }
+
+    toggleRules = () => {
+        this.setState({showRules: !this.state.showRules});
     }
 
     render() {
@@ -88,6 +98,7 @@ export class NimBoard extends React.Component {
 
         let menu = <div className={styles['menu']}>
             <Link id={"back"} to={'/'}>Back</Link>
+            <button id={styles['rulesButton']} onClick={() => this.toggleRules()}>Rules</button>
             <Link id={"restart"} to={'#'}>Restart</Link>
         </div>;
 
@@ -98,6 +109,7 @@ export class NimBoard extends React.Component {
                     {renderedPiles}
                 </div>
                 {menu}
+                {this.state.showRules ? RULES : ''}
             </div>
         );
     }

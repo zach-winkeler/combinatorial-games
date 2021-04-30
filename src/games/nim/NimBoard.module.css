@@ -14,7 +14,7 @@
     background-color: var(--base2);
     display: flex;
     justify-content: center;
-    height: 100%;
+    height: 600px;
 }
 
 .pile {
@@ -46,16 +46,25 @@
 }
 
 .menu {
+    color: var(--base03);
     font-size: x-large;
     text-align: center;
     display: flex;
     justify-content: space-between;
 }
 
-#restart {
-
+#rulesButton {
+    font-size: x-large;
+    font-family: "Courier New", monospace;
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
-#back {
-
+.rectangle {
+    background-color: var(--base2);
+    padding: 0 10px 10px 10px;
+    margin: 10px;
 }

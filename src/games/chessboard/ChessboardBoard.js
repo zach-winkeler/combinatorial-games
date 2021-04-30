@@ -3,10 +3,15 @@ import {range} from "../../util/Range";
 import styles from './ChessboardBoard.module.css';
 import {Link} from "react-router-dom";
 
+const RULES = <div className={styles['rectangle']}>
+    Players take turns moving the chess piece closer to the star. <br/>
+    The player who moves the chess piece onto the starred square wins.
+</div>
+
 export class ChessboardBoard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { highlightedSquare: undefined, players: undefined };
+        this.state = { highlightedSquare: undefined, players: undefined, showRules: false };
     }
 
     getStatus() {
@@ -35,6 +40,10 @@ export class ChessboardBoard extends React.Component {
         this.setState({highlightedSquare: undefined});
         this.props.moves.movePiece(key);
     };
+
+    toggleRules = () => {
+        this.setState({showRules: !this.state.showRules});
+    }
 
     getChessPiece(white) {
         if (white) {
@@ -106,8 +115,9 @@ export class ChessboardBoard extends React.Component {
         }
 
         let menu = <div className={styles['menu']}>
-            <Link id={"back"} to={'/'}>Back</Link>
-            <Link id={"restart"} to={'#'}>Restart</Link>
+            <Link to={'/'}>Back</Link>
+            <button id={styles['rulesButton']} onClick={() => this.toggleRules()}>Rules</button>
+            <Link to={'#'}>Restart</Link>
         </div>;
 
         return (
@@ -117,6 +127,7 @@ export class ChessboardBoard extends React.Component {
                     <tbody>{rows}</tbody>
                 </table>
                 {menu}
+                {this.state.showRules ? RULES : ''}
             </div>
         );
     }
