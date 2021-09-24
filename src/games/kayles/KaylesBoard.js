@@ -9,7 +9,7 @@ const RULES = <div className={styles['rectangle']}>
     Players take turns bowling a ball at a row of pins. <br/>
     A player can either hit one pin, or two adjacent pins. <br/>
     The player who bowls down the last pin wins.
-</div>
+</div>;
 
 export class KaylesBoard extends React.Component {
     constructor(props) {
