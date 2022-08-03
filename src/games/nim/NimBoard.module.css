@@ -2,7 +2,7 @@
     height: 800px;
     display: flex;
     flex-direction: column;
-    font-family: "Courier New", monospace;
+    font-family: monospace;
 }
 
 .status {
@@ -11,7 +11,7 @@
 }
 
 .board {
-    background-color: var(--base2);
+    background-color: var(--b2);
     display: flex;
     justify-content: center;
     height: 600px;
@@ -30,7 +30,7 @@
 }
 
 .token {
-    background-color: var(--base00);
+    background-color: var(--b01);
     width: 40px;
     height: 40px;
     margin: 10px;
@@ -46,7 +46,7 @@
 }
 
 .menu {
-    color: var(--base03);
+    color: var(--b01);
     font-size: x-large;
     text-align: center;
     display: flex;
@@ -54,8 +54,9 @@
 }
 
 #rulesButton {
+    color: var(--blue);
     font-size: x-large;
-    font-family: "Courier New", monospace;
+    font-family: monospace;
     background: none!important;
     border: none;
     padding: 0!important;
@@ -64,7 +65,8 @@
 }
 
 .rectangle {
-    background-color: var(--base2);
+    font-size: large;
+    background-color: var(--b2);
     padding: 0 10px 10px 10px;
     margin: 10px;
 }

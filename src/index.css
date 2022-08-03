@@ -17,10 +17,67 @@
   --green: #859900;
 }
 
+body.dark {
+  --b3: var(--base03);
+  --b2: var(--base02);
+  --b1: var(--base01);
+  --b01: var(--base1);
+  --b02: var(--base2);
+  --b03: var(--base3);
+}
+
 body {
-  background-color: var(--base3);
-  font-family: "Courier New", monospace;
+  --b3: var(--base3);
+  --b2: var(--base2);
+  --b1: var(--base1);
+  --b01: var(--base01);
+  --b02: var(--base02);
+  --b03: var(--base03);
+
+  background-color: var(--b3);
+  font-family: monospace;
+  font-size: large;
+  color: var(--b01);
   text-align: center;
+}
+
+a:link {
+  color: var(--blue);
+}
+
+a:visited {
+  color: var(--blue);
+}
+
+#title {
+  font-size: larger;
+  background-color: var(--b2);
+  display: inline-block;
+  padding: 10px;
+}
+
+#navigation {
+  padding: 10px;
+}
+
+#home-button {
+  color: var(--red);
+}
+
+#teaching-button {
+  color: var(--yellow);
+}
+
+#research-button {
+  color: var(--green);
+}
+
+#cv-button {
+  color: var(--blue);
+}
+
+#other-button {
+  color: var(--violet);
 }
 
 .rectangle-container {
@@ -30,7 +87,8 @@ body {
 }
 
 .rectangle {
-  background-color: var(--base2);
+  max-width: 600px;
+  background-color: var(--b2);
   padding: 0 10px 10px 10px;
   margin: 10px;
 }
@@ -41,13 +99,15 @@ h3 {
 }
 
 ul {
+  list-style-position: inside;
   text-align: left;
 }
 
-a {
-  color: var(--base03);
+.ascii-art-container {
+  display: flex;
+  justify-content: center;
 }
 
-a:visited {
-  color: var(--base03);
+.ascii-art {
+  text-align: left;
 }

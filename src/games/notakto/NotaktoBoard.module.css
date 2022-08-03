@@ -2,7 +2,7 @@
     height: 800px;
     display: flex;
     flex-direction: column;
-    font-family: "Courier New", monospace;
+    font-family: monospace;
     font-size: xx-large;
 }
 
@@ -13,13 +13,14 @@
 
 .board {
     display: flex;
-    background-color: var(--base2);
+    background-color: var(--b2);
     align-items: center;
     justify-content: center;
     height: 600px;
 }
 
 .cell {
+    font-size: xxx-large;
     border: 1px solid #555;
     width: 100px;
     height: 100px;
@@ -28,7 +29,7 @@
 }
 
 .menu {
-    color: var(--base03);
+    color: var(--b01);
     width: 100%;
     font-size: x-large;
     text-align: center;
@@ -37,8 +38,9 @@
 }
 
 #rulesButton {
+    color: var(--blue);
     font-size: x-large;
-    font-family: "Courier New", monospace;
+    font-family: monospace;
     background: none!important;
     border: none;
     padding: 0!important;
@@ -47,8 +49,8 @@
 }
 
 .rectangle {
-    font-size: medium;
-    background-color: var(--base2);
+    font-size: large;
+    background-color: var(--b2);
     padding: 0 10px 10px 10px;
     margin: 10px;
 }
