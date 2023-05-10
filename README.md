@@ -5,6 +5,6 @@ This is a website for playing combinatorial games against your computer. So far,
 * Notakto: Tic-tac-toe, but both players are X's.
 * Blue-Red-Green Nim: A partizan variation of Nim, which is much harder!
 
-The website is currently hosted at https://math.dartmouth.edu/~zwinkeler/games/. I use them as activities whenever I teach fun math classes for middle/high schoolers.
+The website is currently hosted at [https://zach-winkeler.github.io/games/](https://zach-winkeler.github.io/games/). I use them as activities whenever I teach fun math classes for middle/high schoolers.
 
 See README-create-react-app.md for information on running this app yourself.
